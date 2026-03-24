@@ -149,7 +149,7 @@ export default function App() {
           <div className="tag-row">
             <div style={{ width:36, height:2, background:BLUE }} />
             <span style={{ fontSize:11, letterSpacing:3, color:BLUE, textTransform:"uppercase", fontWeight:700 }}>
-              Season 01 — Opens 5 April 2026 — No Code · No APIs · Pure Prompt
+              Season 01 — Closes 5 April 2026 — No Code · No APIs · Pure Prompt
             </span>
           </div>
 
@@ -176,7 +176,7 @@ export default function App() {
 
             <div style={{ borderLeft:`4px solid ${BLUE}` }}>
               <div style={{ fontSize:10, letterSpacing:3, color:DIM, textTransform:"uppercase", fontWeight:600, marginBottom:16, paddingLeft:24 }}>
-                Season Opens In
+                Season Closes In
               </div>
               <div style={{ display:"flex" }}>
                 {[["Days",cd.d],["Hrs",cd.h],["Min",cd.m],["Sec",cd.s]].map(([l,v],i)=>(
