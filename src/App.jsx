@@ -161,7 +161,7 @@ export default function App() {
             <div style={{ maxWidth:460 }}>
               <p style={{ fontSize:17, lineHeight:1.8, color:DIM, fontWeight:300 }}>
                 The AI conversation championship. Hosted by{" "}
-                <strong style={{ color:CREAM, fontWeight:700 }}>Hunar.AI</strong> — the prompt engineering arena where sharp thinkers compete with nothing but language. One brief. One model. Every participant on the same terms.
+                <strong style={{ color:CREAM, fontWeight:700 }}>Hunar.AI</strong> where sharp thinkers go head-to-head with nothing but language. Find a real problem. Build a voice AI solution. One submission. One shot. May the best idea win.
               </p>
               <div style={{ display:"flex", gap:16, marginTop:36 }}>
                 <button onClick={()=>scrollTo("apply")} className="cta-btn" style={{ background:BLUE, color:BG, fontSize:15, padding:"14px 36px" }}>
