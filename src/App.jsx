@@ -44,7 +44,6 @@ const PHASES = [
 const REWARDS = [
   { icon:"🎖️", title:"Leaderboard Recognition", desc:"Every valid submission earns a rank on the public leaderboard — your idea, your name, your moment." },
   { icon:"💼", title:"Portfolio Badge",          desc:"Walk away with a verified badge tied to your submission — proof of real-world problem solving you can carry anywhere." },
-  { icon:"📢", title:"Spotlight Feature",        desc:"Stand-out submissions get showcased to Hunar.AI's network of industry partners, hiring leads, and investors." },
   { icon:"💰", title:"Prize Pool",               desc:"Top submissions win real money. The better your idea, the bigger your reward." },
 ];
 
