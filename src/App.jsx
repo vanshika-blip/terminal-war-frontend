@@ -8,11 +8,37 @@ const CREAM  = "#E8E6F0";
 const DIM    = "rgba(232,230,240,0.45)";
 
 const PHASES = [
-  { num:"01", title:"Problem Drop",  subtitle:"Day 1",           desc:"The challenge prompt is released to all participants simultaneously. Individual entry. No code, no APIs — just you and the blank page." },
-  { num:"02", title:"Build Phase",   subtitle:"Days 2 – 3",      desc:"48 hours to craft your best prompt response. Use creativity, logic, and language to produce the strongest possible output." },
-  { num:"03", title:"Submission",    subtitle:"Day 3 · 11:59 PM",desc:"Submit your output + the prompt strategy behind it through the portal. Clarity of reasoning counts as much as the result." },
-  { num:"04", title:"Judging",       subtitle:"Days 4 – 6",      desc:"A panel of four judges scores on creativity, output quality, and prompt efficiency. Audience vote counts for 40% in head-to-head rounds." },
-  { num:"05", title:"Championship",  subtitle:"Day 7",           desc:"Top prompts go head-to-head live. Winners announced. Leaderboard updated. Credits distributed.", locked: true },
+  {
+    num: "01",
+    title: "Usecase & Tutorials",
+    subtitle: "Problem Drop",
+    desc: "The challenge brief is released — a real-world problem designed to be solved through conversational AI. Tutorial links and platform walkthroughs are shared so every participant starts on equal footing. No prior experience required.",
+  },
+  {
+    num: "02",
+    title: "Build Phase",
+    subtitle: "Craft Your Solution",
+    desc: "Use Hunar.AI's platform to engineer your best prompt-driven solution. The AI model is revealed with the brief. No code, no APIs — just your thinking, your language, and the output you produce.",
+  },
+  {
+    num: "03",
+    title: "Submission",
+    subtitle: "Submit via Portal",
+    desc: "Submit through the portal: your project link, the prompt strategy behind it, and a LinkedIn or blog post sharing your build-in-public journey. Clarity of reasoning counts as much as the result.",
+  },
+  {
+    num: "04",
+    title: "Evaluation",
+    subtitle: "Assessment & Scores",
+    desc: "A panel of judges scores every submission on creativity, output quality, and prompt efficiency. Audience vote counts for 40% in head-to-head rounds. Leaderboard updated. Credits distributed.",
+  },
+  {
+    num: "05",
+    title: "Championship",
+    subtitle: "Coming Soon",
+    desc: "Phase 5 details will be announced when registrations closes on 5 April 2026.",
+    locked: true,
+  },
 ];
 
 const REWARDS = [
@@ -32,11 +58,9 @@ const FAQS = [
   { q:"How many rounds are in a season?",                  a:"Season 01 runs multiple challenge cycles. Each cycle follows the same 4-phase structure. The number of cycles will be announced when the season kicks off on April 5." },
   { q:"What are Prompt Credits used for?",                 a:"Prompt Credits unlock advanced rounds, accumulate toward leaderboard standing, and will be redeemable in the Hunar swag store in future seasons." },
   { q:"Will there be prizes?",                             a:"Season 01 features a $250 prize pool alongside recognition, Prompt Credits, and leaderboard placement. Bigger prize pools are planned for future seasons." },
-  { q:"What happens if I miss the submission deadline?",   a:"Late submissions are not accepted — the challenge window is fixed and fair for all. The deadline is always 11:59 PM on Day 3." },
+  { q:"What happens if I miss the submission deadline?",   a:"Late submissions are not accepted — the challenge window is fixed and fair for all. The deadline is always 11:59 PM on the final submission day." },
 ];
 
-// ── Backend URL ─────────────────────────────────────────────────────────────
-// Change this to your deployed backend URL in production
 const API_URL = "https://terminal-war-backend.onrender.com";
 
 function scrollTo(id) {
@@ -70,21 +94,17 @@ export default function App() {
     return e;
   };
 
-  // ── Submit to backend ──────────────────────────────────────────────────────
   const handleSubmit = async () => {
     const errs = validate();
     if(Object.keys(errs).length){ setErrors(errs); return; }
-
     setLoading(true);
     setServerError("");
-
     try {
       const res = await fetch(`${API_URL}/api/apply`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
       });
-
       if (!res.ok) throw new Error("Server error");
       setSubmitted(true);
     } catch (err) {
@@ -101,7 +121,6 @@ export default function App() {
       {/* NAV */}
       <nav style={{ position:"fixed", top:0, left:0, right:0, zIndex:300, background:"rgba(8,9,15,0.94)", backdropFilter:"blur(20px)", borderBottom:`1px solid rgba(110,130,232,0.1)` }}>
         <div style={{ maxWidth:1200, margin:"0 auto", padding:"16px 48px", display:"flex", justifyContent:"space-between", alignItems:"center" }}>
-          {/* TEXT-ONLY LOGO */}
           <button onClick={()=>scrollTo("hero")} style={{ background:"none", border:"none", cursor:"pointer", display:"flex", alignItems:"center", padding:0 }}>
             <span style={{ fontFamily:"'Playfair Display', serif", fontSize:20, fontWeight:900, letterSpacing:2, color:CREAM }}>
               hunar<span style={{color:BLUE}}>.</span><span style={{color:NAVY}}>ai</span>
@@ -136,7 +155,7 @@ export default function App() {
 
           <h1 className="hero-h1">
             Terminal<br/>
-            <span style={{ color:BLUE }}>War</span><sup className="hero-sup">01</sup>
+            <span style={{ color:BLUE }}>War</span>
           </h1>
 
           <div style={{ display:"flex", gap:64, marginTop:48, flexWrap:"wrap", alignItems:"flex-start" }}>
@@ -175,7 +194,7 @@ export default function App() {
 
         {/* Stat strip */}
         <div style={{ position:"absolute", bottom:0, left:0, right:0, borderTop:`1px solid rgba(110,130,232,0.1)`, display:"flex" }}>
-          {[["142 / 200","Spots Left"],["$250","Prize Money"],["Solo","Format"],["Free","Entry"]].map(([v,l],i)=>(
+          {[["$250","Prize Money"],["Solo","Format"],["Free","Entry"]].map(([v,l],i)=>(
             <div key={l} style={{ flex:1, padding:"18px 32px", borderRight:`1px solid rgba(110,130,232,0.08)`, background: i%2===0?"rgba(110,130,232,0.03)":"transparent" }}>
               <div style={{ fontFamily:"'Playfair Display', serif", fontSize:26, fontWeight:900, color:i%2===0?BLUE:NAVY }}>{v}</div>
               <div style={{ fontSize:10, color:DIM, letterSpacing:2, textTransform:"uppercase", marginTop:2 }}>{l}</div>
@@ -212,6 +231,7 @@ export default function App() {
           <h2 style={{ ...H2, marginTop:16 }}>The Challenge Cycle</h2>
           <p style={{ fontSize:15, color:DIM, marginTop:12, maxWidth:480 }}>Every challenge follows the same structure. Fast, fair, and entirely virtual.</p>
 
+          {/* Phase connector strip */}
           <div style={{ display:"flex", alignItems:"center", marginTop:52, flexWrap:"wrap" }}>
             {PHASES.map((p,i)=>{
               const locked = p.locked && !showPhase5;
@@ -233,6 +253,7 @@ export default function App() {
             })}
           </div>
 
+          {/* Phase cards */}
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(200px,1fr))", gap:2, marginTop:16, background:`rgba(110,130,232,0.06)` }}>
             {PHASES.map((p,i)=>{
               const locked = p.locked && !showPhase5;
@@ -240,9 +261,13 @@ export default function App() {
               return (
                 <div key={i} className="phase-card" style={{ background:BG, borderTop:`3px solid ${locked?"rgba(255,255,255,0.08)":isBlue?BLUE:NAVY}`, padding:"28px 24px", opacity:locked?0.45:1 }}>
                   <div style={{ fontFamily:"'Playfair Display', serif", fontSize:62, fontWeight:900, color:isBlue?`rgba(110,130,232,0.12)`:`rgba(58,75,170,0.12)`, lineHeight:1, marginBottom:14 }}>{p.num}</div>
+                  {/* Subtitle (milestone label) */}
                   <div style={{ fontSize:10, color:isBlue?BLUE:NAVY, letterSpacing:2.5, textTransform:"uppercase", fontWeight:700, marginBottom:8 }}>{p.subtitle}</div>
-                  <h3 style={{ fontSize:17, fontWeight:800, color:CREAM, marginBottom:10 }}>{locked?"🔒 Revealed Apr 5":p.title}</h3>
-                  <p style={{ fontSize:13.5, color:DIM, lineHeight:1.65 }}>{locked?"Phase 5 details will be announced when registrations open on 5 April 2026.":p.desc}</p>
+                  {/* Title */}
+                  <h3 style={{ fontSize:17, fontWeight:800, color:CREAM, marginBottom:10 }}>
+                    {locked ? "🔒 Revealed Apr 5" : p.title}
+                  </h3>
+                  <p style={{ fontSize:13.5, color:DIM, lineHeight:1.65 }}>{p.desc}</p>
                 </div>
               );
             })}
@@ -321,7 +346,6 @@ export default function App() {
                 <FF label="Portfolio / GitHub" note="optional"><input name="portfolio" value={form.portfolio} onChange={handleChange} placeholder="https://github.com/yourhandle" style={IS(false)} /></FF>
               </div>
 
-              {/* Server error message */}
               {serverError && (
                 <p style={{ color:"#FF7B7B", fontSize:13, marginBottom:16, textAlign:"center" }}>{serverError}</p>
               )}
