@@ -12,7 +12,7 @@ const PHASES = [
     num: "01",
     title: "Usecase & Tutorials",
     subtitle: "Problem Drop",
-    desc: "The challenge brief is released — a real-world problem designed to be solved through conversational AI. Tutorial links and platform walkthroughs are shared so every participant starts on equal footing. No prior experience required.",
+    desc: "The challenge is simple: find a real problem worth solving. Dig into a business, an industry, or a daily frustration, then build a conversational voice AI that fixes it. No predefined brief. No hand-holding. Just you, a problem you care about, and a voice interface that brings the solution to life.",
   },
   {
     num: "02",
@@ -42,10 +42,10 @@ const PHASES = [
 ];
 
 const REWARDS = [
-  { icon:"🏆", title:"Prompt Credits",   desc:"Every submission earns Prompt Credits — the currency of Terminal War. The more you compete, the more you accumulate." },
-  { icon:"🎖️", title:"Leaderboard Rank", desc:"Climb the cumulative leaderboard and get noticed by industry leaders and the Hunar.AI community." },
-  { icon:"🔓", title:"Advanced Rounds",  desc:"High XP unlocks entry into advanced, high-stakes rounds with bigger challenges and bigger rewards." },
-  { icon:"💡", title:"Portfolio",        desc:"By season end, you'll hold a library of top-tier prompt outputs — proof of your prompt engineering skill." },
+  { icon:"🎖️", title:"Leaderboard Recognition", desc:"Every valid submission earns a rank on the public leaderboard — your idea, your name, your moment." },
+  { icon:"💼", title:"Portfolio Badge",          desc:"Walk away with a verified badge tied to your submission — proof of real-world problem solving you can carry anywhere." },
+  { icon:"📢", title:"Spotlight Feature",        desc:"Stand-out submissions get showcased to Hunar.AI's network of industry partners, hiring leads, and investors." },
+  { icon:"💰", title:"Prize Pool",               desc:"Top submissions win real money. The better your idea, the bigger your reward." },
 ];
 
 const FAQS = [
@@ -149,7 +149,7 @@ export default function App() {
           <div className="tag-row">
             <div style={{ width:36, height:2, background:BLUE }} />
             <span style={{ fontSize:11, letterSpacing:3, color:BLUE, textTransform:"uppercase", fontWeight:700 }}>
-              Season 01 — Closes 5 April 2026 — No Code · No APIs · Pure Prompt
+              Registration closes 5 April 2026 — No Code · No APIs · Pure Prompt
             </span>
           </div>
 
@@ -176,7 +176,7 @@ export default function App() {
 
             <div style={{ borderLeft:`4px solid ${BLUE}` }}>
               <div style={{ fontSize:10, letterSpacing:3, color:DIM, textTransform:"uppercase", fontWeight:600, marginBottom:16, paddingLeft:24 }}>
-                Season Closes In
+                Registration Closes In
               </div>
               <div style={{ display:"flex" }}>
                 {[["Days",cd.d],["Hrs",cd.h],["Min",cd.m],["Sec",cd.s]].map(([l,v],i)=>(
@@ -258,7 +258,7 @@ export default function App() {
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <SectionTag label="What You Earn" />
           <h2 style={{ ...H2, marginTop:16 }}>Earn Your Prompt Credits</h2>
-          <p style={{ fontSize:15, color:DIM, marginTop:12, maxWidth:560 }}>In Terminal War, your effort turns into Prompt Credits. The more you compete, the more you build.</p>
+          <p style={{ fontSize:15, color:DIM, marginTop:12}}>In Terminal War, your effort turns into Prompt Credits. The more you compete, the more you build.</p>
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(250px,1fr))", gap:16, marginTop:48 }}>
             {REWARDS.map((r,i)=>(
               <div key={i} className="reward-card" style={{ background:BG, border:`1px solid rgba(110,130,232,0.1)`, borderTop:`3px solid ${i%2===0?BLUE:NAVY}`, padding:"32px 26px" }}>
