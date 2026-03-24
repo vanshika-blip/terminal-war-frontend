@@ -335,11 +335,11 @@ export default function App() {
           ) : (
             <div style={{ background:BG, border:`1px solid rgba(110,130,232,0.1)`, padding:"48px 44px", marginTop:48 }}>
               <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"24px 32px", marginBottom:24 }}>
-                <FF label="Full Name" req err={errors.name}><input name="name" value={form.name} onChange={handleChange} placeholder="Aisha Sharma" style={IS(errors.name)} /></FF>
-                <FF label="Phone Number" req err={errors.phone}><input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="+91 98765 43210" style={IS(errors.phone)} /></FF>
+                <FF label="Full Name" req err={errors.name}><input name="name" value={form.name} onChange={handleChange} placeholder="Your name" style={IS(errors.name)} /></FF>
+                <FF label="Phone Number" req err={errors.phone}><input name="phone" type="tel" value={form.phone} onChange={handleChange} placeholder="Your phone number" style={IS(errors.phone)} /></FF>
                 <FF label="Email Address" req err={errors.email}><input name="email" type="email" value={form.email} onChange={handleChange} placeholder="you@example.com" style={IS(errors.email)} /></FF>
-                <FF label="College / Organisation" req err={errors.college}><input name="college" value={form.college} onChange={handleChange} placeholder="Delhi Technological University" style={IS(errors.college)} /></FF>
-                <FF label="Course / Role" req err={errors.course}><input name="course" value={form.course} onChange={handleChange} placeholder="B.Tech CSE · 3rd Year" style={IS(errors.course)} /></FF>
+                <FF label="College / Organisation" req err={errors.college}><input name="college" value={form.college} onChange={handleChange} placeholder="University" style={IS(errors.college)} /></FF>
+                <FF label="Course / Role" req err={errors.course}><input name="course" value={form.course} onChange={handleChange} placeholder="Your course" style={IS(errors.course)} /></FF>
                 <FF label="LinkedIn URL" req err={errors.linkedin}><input name="linkedin" type="url" value={form.linkedin} onChange={handleChange} placeholder="https://linkedin.com/in/yourname" style={IS(errors.linkedin)} /></FF>
               </div>
               <div style={{ marginBottom:24 }}>
