@@ -229,29 +229,7 @@ export default function App() {
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <SectionTag label="How It Works" />
           <h2 style={{ ...H2, marginTop:16 }}>The Challenge Cycle</h2>
-          <p style={{ fontSize:15, color:DIM, marginTop:12, maxWidth:480 }}>Every challenge follows the same structure. Fast, fair, and entirely virtual.</p>
-
-          {/* Phase connector strip */}
-          <div style={{ display:"flex", alignItems:"center", marginTop:52, flexWrap:"wrap" }}>
-            {PHASES.map((p,i)=>{
-              const locked = p.locked && !showPhase5;
-              const isBlue = i%2===0;
-              return (
-                <div key={i} style={{ display:"flex", alignItems:"center" }}>
-                  <div style={{ padding:"10px 22px", border:`1.5px solid ${locked?"rgba(255,255,255,0.1)":isBlue?`rgba(110,130,232,0.4)`:`rgba(58,75,170,0.4)`}`, background:locked?"rgba(255,255,255,0.03)":isBlue?"rgba(110,130,232,0.08)":"rgba(58,75,170,0.08)", display:"flex", alignItems:"center", gap:8 }}>
-                    <span style={{ fontFamily:"'Playfair Display', serif", fontSize:14, fontWeight:900, color:locked?DIM:isBlue?BLUE:NAVY, letterSpacing:1 }}>Phase {p.num}</span>
-                    {locked && <span style={{ fontSize:10, color:"rgba(255,255,255,0.25)" }}>🔒 Apr 5</span>}
-                  </div>
-                  {i<PHASES.length-1 && (
-                    <div style={{ display:"flex", alignItems:"center", margin:"0 2px" }}>
-                      <div style={{ width:28, height:1, background:`rgba(110,130,232,0.2)` }} />
-                      <span style={{ color:`rgba(110,130,232,0.3)`, fontSize:16 }}>›</span>
-                    </div>
-                  )}
-                </div>
-              );
-            })}
-          </div>
+          <p style={{ fontSize:15, color:DIM, marginTop:12 }}>Every challenge follows the same structure. Fast, fair, and entirely virtual.</p>
 
           {/* Phase cards */}
           <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(200px,1fr))", gap:2, marginTop:16, background:`rgba(110,130,232,0.06)` }}>
@@ -321,7 +299,7 @@ export default function App() {
         <div style={{ maxWidth:1200, margin:"0 auto" }}>
           <SectionTag label="Applications Open · Season 01" />
           <h2 style={{ ...H2, marginTop:16 }}>Enter the Terminal</h2>
-          <p style={{ fontSize:15, color:DIM, marginTop:12, maxWidth:480 }}>Individual entries only. Under 2 minutes to fill in.</p>
+          <p style={{ fontSize:15, color:DIM, marginTop:12 }}>Individual entries only. Under 2 minutes to fill in.</p>
 
           {submitted ? (
             <div style={{ background:BG, border:`1.5px solid ${BLUE}`, padding:"80px 48px", marginTop:48, textAlign:"center" }}>
